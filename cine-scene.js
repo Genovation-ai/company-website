@@ -202,6 +202,8 @@
 
         for (var p = 0; p < P.length; p++) {
           var d = P[p], hn = NODES[d.hx];
+          // A rebuild can leave a particle pointing past the new node set.
+          if (!hn) continue;
           var esc = 1 - hn.sealed;
           d.vy += dt * 26 * speed * esc;
           d.x += d.vx * speed;
@@ -239,7 +241,11 @@
           if (q2.t > 1) q2.t -= 1;
           var seg = q2.t * (NODES.length - 1);
           var si = Math.floor(seg), sf = seg - si;
-          var A = NODES[Math.min(si, NODES.length - 1)], B = NODES[Math.min(si + 1, NODES.length - 1)];
+          // Guard against a NaN/out-of-range step landing on an absent node.
+          if (!isFinite(si)) { si = 0; sf = 0; }
+          si = Math.max(0, Math.min(si, NODES.length - 1));
+          var A = NODES[si], B = NODES[Math.min(si + 1, NODES.length - 1)];
+          if (!A || !B) continue;
           var x = lerp(A.x, B.x, sf) + px, y = lerp(A.y, B.y, sf) + py + q2.off * (1 - Math.abs(sf - 0.5) * 2) * 0.5;
           dot(x, y, q2.r, q2.a * (0.35 + 0.65 * Math.sin(q2.t * Math.PI)));
         }
