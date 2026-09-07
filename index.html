@@ -35,7 +35,7 @@
   h1, h2, h3, p, li { overflow-wrap: break-word; }
   a[href^="tel:"], a[href^="mailto:"] { white-space: nowrap; }
   a { color: #FFFFFF; text-decoration: none; }
-  a:hover { color: rgba(255,255,255,.72); }
+  a:hover { color: rgba(255,255,255,.82); }
   ::selection { background: #FFFFFF; color: #000000; }
   :focus-visible { outline: 1.5px solid rgba(255,255,255,.8); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
@@ -46,6 +46,7 @@
 
   <section id="top" data-screen-label="Hero" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: #000;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/hero-shop-lights.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-hidden="true" style="position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 120%; height: 120%; object-fit: cover; object-position: center; z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
+    <div aria-hidden="true" data-scrim="1" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.6) 34%, rgba(0,0,0,.56) 60%, rgba(0,0,0,.8) 100%);"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none;">
       <x-import component-from-global-scope="cine-scene" from="./cine-scene.js" mode="leak" tint="#ffffff" opacity="0.5" density="1" hint-size="100%,100%"></x-import>
     </div>
@@ -60,9 +61,9 @@
         <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
           <div style="display: flex; align-items: center; gap: 8px; padding: 6px; border-radius: 999px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
             <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="5">
-              <a href="{{ n.href }}" style="position: relative; z-index: 1; padding: 8px clamp(9px, 1vw, 13px); font-size: clamp(12px, 1.05vw, 14px); font-weight: 500; color: rgba(255,255,255,.9); white-space: nowrap; border-radius: 999px; transition: color .25s ease, background .25s ease;" style-hover="color: #FFFFFF; background: rgba(255,255,255,.18);">{{ n.label }}</a>
+              <a href="{{ n.href }}" style="position: relative; z-index: 1; padding: 8px clamp(9px, 1vw, 13px); font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 500; color: rgba(255,255,255,.9); white-space: nowrap; border-radius: 999px; transition: color .25s ease, background .25s ease;" style-hover="color: #FFFFFF; background: rgba(255,255,255,.18);">{{ n.label }}</a>
             </sc-for>
-            <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" style="position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 14px; font-weight: 500; white-space: nowrap; transition: opacity .3s ease;" style-hover="opacity: .86; color: #000000;">
+            <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" style="position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 16.5px; font-weight: 500; white-space: nowrap; transition: opacity .3s ease;" style-hover="opacity: .86; color: #000000;">
               Claim a Slot
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 15px; height: 15px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
             </a>
@@ -71,7 +72,7 @@
 
         <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
           <div style="display: flex; align-items: center; gap: 9px;">
-            <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 13.5px; font-weight: 500; white-space: nowrap;">
+            <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 15.5px; font-weight: 500; white-space: nowrap;">
               Claim a Slot
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
             </a>
@@ -84,9 +85,9 @@
         <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
           <div id="mobile-nav" style="position: absolute; top: calc(100% + 10px); left: clamp(16px, 4vw, 64px); right: clamp(16px, 4vw, 64px); z-index: 60; padding: 10px; border-radius: 22px; display: flex; flex-direction: column; position: absolute; overflow: hidden; background: rgba(255,255,255,.02); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 12px rgba(0,0,0,.25), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
             <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="5">
-              <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="position: relative; z-index: 1; padding: 13px 16px; border-radius: 14px; font-size: 15px; font-weight: 500; color: #FFFFFF; transition: background .25s ease;" style-hover="background: rgba(255,255,255,.07); color: #FFFFFF;">{{ n.label }}</a>
+              <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="position: relative; z-index: 1; padding: 13px 16px; border-radius: 14px; font-size: 17px; font-weight: 500; color: #FFFFFF; transition: background .25s ease;" style-hover="background: rgba(255,255,255,.07); color: #FFFFFF;">{{ n.label }}</a>
             </sc-for>
-            <a href="tel:+12897003394" onClick="{{ closeMenu }}" style="position: relative; z-index: 1; padding: 13px 16px; border-radius: 14px; font-size: 15px; font-weight: 500; color: rgba(255,255,255,.8);">+1 289-700-3394</a>
+            <a href="tel:+12897003394" onClick="{{ closeMenu }}" style="position: relative; z-index: 1; padding: 13px 16px; border-radius: 14px; font-size: 17px; font-weight: 500; color: rgba(255,255,255,.8);">+1 289-700-3394</a>
           </div>
         </sc-if>
 
@@ -97,9 +98,9 @@
 
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: clamp(96px, 14vh, 130px) clamp(16px, 4vw, 32px) clamp(20px, 3vh, 30px);">
 
-        <div data-anim="1" data-anim-delay="400" style="display: inline-flex; align-items: center; gap: 10px; padding: 4px; border-radius: 999px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
-          <span style="position: relative; z-index: 1; padding: 5px 12px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 12px; font-weight: 600;">Guarantee</span>
-          <span style="position: relative; z-index: 1; padding-right: 12px; font-size: 14px; color: rgba(255,255,255,.9);">Not live in 30 days? You don't pay for the build.</span>
+        <div data-anim="1" data-anim-delay="400" style="display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; max-width: 100%; gap: 10px; padding: 4px; border-radius: 999px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+          <span style="position: relative; z-index: 1; flex: none; padding: 5px 12px; border-radius: 999px; background: #FFFFFF; color: #000000; font-size: 14.5px; font-weight: 600;">Guarantee</span>
+          <span style="position: relative; z-index: 1; padding-right: 12px; font-size: 16.5px; color: rgba(255,255,255,.9);">Not live in 30 days? You don't pay for the build.</span>
         </div>
 
         <h1 style="margin: clamp(18px, 3vh, 26px) 0 0; max-width: 20ch; display: flex; flex-wrap: wrap; justify-content: center; row-gap: .1em; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(44px, 7vw, 88px); line-height: .82; letter-spacing: -0.048em; color: #FFFFFF;">
@@ -108,14 +109,14 @@
           </sc-for>
         </h1>
 
-        <p data-anim="1" data-anim-delay="800" style="margin: clamp(14px, 2.2vh, 20px) 0 0; max-width: 62ch; font-size: clamp(13.5px, 1.5vw, 16.5px); font-weight: 300; line-height: 1.4; color: #FFFFFF;">Missed calls. Leads nobody rang back. Quotes nobody chased. We find exactly what those gaps cost you, then build the AI that stops them working in 30 days, for less than one salary.</p>
+        <p data-anim="1" data-anim-delay="800" style="margin: clamp(14px, 2.2vh, 20px) 0 0; max-width: 62ch; font-size: clamp(17px, 1.6vw, 19px); font-weight: 400; line-height: 1.62; color: #FFFFFF;">Missed calls. Leads nobody rang back. Quotes nobody chased. We find exactly what those gaps cost you, then build the AI that stops them working in 30 days, for less than one salary.</p>
 
         <div data-anim="1" data-anim-delay="1100" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 26px); margin-top: clamp(18px, 3vh, 26px);">
-          <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 11px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 14.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+          <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 11px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
             <span style="position: relative; z-index: 1; white-space: nowrap;">Book your free Leak Audit</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 19px; height: 19px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
           </a>
-          <a href="tel:+12897003394" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 400; color: #FFFFFF;">
+          <a href="tel:+12897003394" style="display: inline-flex; align-items: center; gap: 8px; font-size: 16.5px; font-weight: 400; color: #FFFFFF;">
             +1 289-700-3394
             <svg viewBox="0 0 24 24" fill="currentColor" style="width: 15px; height: 15px;"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.4 11.4 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.57 1 1 0 0 1-.25 1.02l-2.2 2.2Z"></path></svg>
           </a>
@@ -126,11 +127,11 @@
             <div style="flex: 1 1 240px; min-width: 220px; max-width: 330px; padding: 20px; border-radius: 20px; display: flex; flex-direction: column; text-align: left; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
               <span style="position: relative; z-index: 1; display: block; margin-bottom: 22px;">{{ s.icon }}</span>
               <span data-count-to="{{ s.countTo }}" data-count-prefix="{{ s.prefix }}" data-count-suffix="{{ s.suffix }}" data-steps="{{ s.steps }}" style="position: relative; z-index: 1; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(28px, 3.4vw, 36px); letter-spacing: -0.02em; line-height: 1; color: #FFFFFF;">{{ s.seed }}</span>
-              <span data-step-caption="1" style="position: relative; z-index: 1; margin-top: 8px; min-height: 3.4em; font-size: 12px; font-weight: 300; line-height: 1.45; color: #FFFFFF; transition: opacity .3s ease;">{{ s.label }}</span>
+              <span data-step-caption="1" style="position: relative; z-index: 1; margin-top: 8px; min-height: 3.4em; font-size: 14.5px; font-weight: 400; line-height: 1.62; color: #FFFFFF; transition: opacity .3s ease;">{{ s.label }}</span>
               <sc-if value="{{ s.hasSteps }}" hint-placeholder-val="{{ false }}">
                 <div style="position: relative; z-index: 1; margin-top: 14px; display: flex; flex-wrap: wrap; gap: 5px;">
                   <sc-for list="{{ s.chips }}" as="c" hint-placeholder-count="4">
-                    <span data-step-chip="{{ c.i }}" style="padding: 3px 9px; border-radius: 999px; font-size: 10.5px; font-weight: 400; line-height: 1.4; white-space: nowrap; color: rgba(255,255,255,.4); background: rgba(255,255,255,.03); box-shadow: inset 0 1px 1px rgba(255,255,255,.08); transition: color .45s ease, background .45s ease;">{{ c.label }}</span>
+                    <span data-step-chip="{{ c.i }}" style="padding: 3px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 400; line-height: 1.62; white-space: nowrap; color: rgba(255,255,255,.74); background: rgba(255,255,255,.03); box-shadow: inset 0 1px 1px rgba(255,255,255,.08); transition: color .45s ease, background .45s ease;">{{ c.label }}</span>
                   </sc-for>
                 </div>
               </sc-if>
@@ -140,7 +141,7 @@
       </div>
 
       <div data-anim="1" data-anim-delay="1400" style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 0 clamp(16px, 4vw, 32px) clamp(24px, 4vh, 34px);">
-        <span style="padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: #FFFFFF; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;"><span style="position: relative; z-index: 1;">Built for the trades that live on the phone</span></span>
+        <span style="padding: 5px 14px; border-radius: 999px; font-size: 14.5px; font-weight: 500; color: #FFFFFF; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;"><span style="position: relative; z-index: 1;">Built for the trades that live on the phone</span></span>
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(26px, 5vw, 64px);">
           <sc-for list="{{ trades }}" as="t" hint-placeholder-count="5">
             <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: -0.02em; color: #FFFFFF; white-space: nowrap;">{{ t.label }}</span>
@@ -152,14 +153,15 @@
 
   <section id="build" data-screen-label="What we build" style="position: relative; min-height: 100vh; overflow: hidden; background: #000;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/agents-phone.mp4" data-clip="{{ buildVideo }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-hidden="true" style="position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 120%; height: 120%; object-fit: cover; object-position: center; opacity: .55; z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
+    <div aria-hidden="true" data-scrim="1" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.6) 34%, rgba(0,0,0,.56) 60%, rgba(0,0,0,.8) 100%);"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none;">
       <x-import component-from-global-scope="cine-scene" from="./cine-scene.js" mode="assemble" tint="#ffffff" opacity="0.62" density="1.15" hint-size="100%,100%"></x-import>
     </div>
     <div style="position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; padding: clamp(70px, 12vh, 100px) clamp(20px, 5vw, 80px) clamp(40px, 6vh, 56px);">
       <div style="margin-bottom: auto;">
-        <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 14px; color: rgba(255,255,255,.8);">// What we build</p>
+        <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 16.5px; color: rgba(255,255,255,.8);">// What we build</p>
         <h2 data-anim="1" data-anim-delay="120" style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 7vw, 96px); line-height: .9; letter-spacing: -0.038em; color: #FFFFFF;">Plug the holes<br>then fill the bucket</h2>
-        <p data-anim="1" data-anim-delay="240" style="margin: 24px 0 0; max-width: 52ch; font-size: 15px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.9);">More marketing just pours more water into a leaking bucket. So we work in that order, every time.</p>
+        <p data-anim="1" data-anim-delay="240" style="margin: 24px 0 0; max-width: 52ch; font-size: 17px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.9);">More marketing just pours more water into a leaking bucket. So we work in that order, every time.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: clamp(40px, 7vh, 64px);">
         <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
@@ -168,14 +170,14 @@
               <span style="width: 44px; height: 44px; flex: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: rgba(255,255,255,.03); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.12);">{{ s.icon }}</span>
               <span style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; max-width: 72%;">
                 <sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="4">
-                  <span style="padding: 4px 11px; border-radius: 999px; font-size: 11px; color: rgba(255,255,255,.9); white-space: nowrap; background: rgba(255,255,255,.04); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);">{{ t.label }}</span>
+                  <span style="padding: 4px 11px; border-radius: 999px; font-size: 13.5px; color: rgba(255,255,255,.9); white-space: nowrap; background: rgba(255,255,255,.04); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);">{{ t.label }}</span>
                 </sc-for>
               </span>
             </div>
             <span style="flex: 1;"></span>
             <div style="position: relative; z-index: 1; margin-top: 24px;">
               <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.025em; line-height: 1; color: #FFFFFF;">{{ s.title }}</h3>
-              <p style="margin: 12px 0 0; max-width: 32ch; font-size: 14px; font-weight: 300; line-height: 1.4; color: rgba(255,255,255,.9);">{{ s.body }}</p>
+              <p style="margin: 12px 0 0; max-width: 32ch; font-size: 16.5px; font-weight: 400; line-height: 1.62; color: rgba(255,255,255,.9);">{{ s.body }}</p>
             </div>
           </a>
         </sc-for>
@@ -185,11 +187,11 @@
     <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Want to know what this is costing you?</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
-        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 14.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
           <span style="position: relative; z-index: 1; white-space: nowrap;">Book your free Leak Audit</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 16px; height: 16px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
         </a>
-        <a href="tel:+12897003394" style="font-size: 14px; color: rgba(255,255,255,.72); white-space: nowrap;">+1 289-700-3394</a>
+        <a href="tel:+12897003394" style="font-size: 16.5px; color: rgba(255,255,255,.82); white-space: nowrap;">+1 289-700-3394</a>
       </div>
     </div>
 
@@ -197,14 +199,15 @@
 
   <section id="workforce" data-screen-label="AI Workforce" style="position: relative; min-height: 100vh; overflow: hidden; background: #000;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/found-monitors.mp4" data-clip="{{ activeVideo }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-hidden="true" style="position: absolute; right: 0; top: 7%; width: min(46%, 620px); height: 46%; object-fit: cover; border-radius: 26px 0 0 26px; -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 34%, #000 100%); mask-image: linear-gradient(100deg, transparent 0%, #000 34%, #000 100%); z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
+    <div aria-hidden="true" data-scrim="1" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.6) 34%, rgba(0,0,0,.56) 60%, rgba(0,0,0,.8) 100%);"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none;">
       <x-import component-from-global-scope="cine-scene" from="./cine-scene.js" mode="workforce" tint="#ffffff" opacity="0.45" hint-size="100%,100%"></x-import>
     </div>
     <div style="position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; padding: clamp(70px, 12vh, 100px) clamp(20px, 5vw, 80px) clamp(40px, 6vh, 56px);">
       <div style="margin-bottom: auto;">
-        <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 14px; color: rgba(255,255,255,.8);">// The AI Workforce</p>
+        <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 16.5px; color: rgba(255,255,255,.8);">// The AI Workforce</p>
         <h2 data-anim="1" data-anim-delay="120" style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 7vw, 96px); line-height: .9; letter-spacing: -0.038em; color: #FFFFFF;">The whole team<br>in one dashboard</h2>
-        <p data-anim="1" data-anim-delay="240" style="margin: 24px 0 0; max-width: 54ch; font-size: 15px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.9);">Imagine hiring five people and all five sit in one dashboard. You give them a job, they do it, you check the work. One login, one bill, shared memory so nothing gets repeated back to your customer.</p>
+        <p data-anim="1" data-anim-delay="240" style="margin: 24px 0 0; max-width: 54ch; font-size: 17px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.9);">Imagine hiring five people and all five sit in one dashboard. You give them a job, they do it, you check the work. One login, one bill, shared memory so nothing gets repeated back to your customer.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(34px, 6vh, 52px);">
         <sc-for list="{{ systems }}" as="s" hint-placeholder-count="5">
@@ -212,12 +215,12 @@
         </sc-for>
       </div>
       <div data-anim="1" data-anim-delay="120" style="margin-top: 16px; padding: clamp(24px, 3vw, 38px); border-radius: 24px; display: flex; flex-direction: column; gap: 18px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
-        <span style="position: relative; z-index: 1; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.7);">{{ activeTag }}</span>
+        <span style="position: relative; z-index: 1; font-size: 14.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.82);">{{ activeTag }}</span>
         <h3 style="position: relative; z-index: 1; margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(28px, 3.6vw, 46px); letter-spacing: -0.03em; line-height: 1; color: #FFFFFF;">{{ activeTitle }}</h3>
-        <p style="position: relative; z-index: 1; margin: 0; max-width: 56ch; font-size: 15px; font-weight: 300; line-height: 1.5; color: rgba(255,255,255,.92);">{{ activeBody }}</p>
+        <p style="position: relative; z-index: 1; margin: 0; max-width: 56ch; font-size: 17px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.92);">{{ activeBody }}</p>
         <div style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 7px;">
           <sc-for list="{{ activeChain }}" as="c" hint-placeholder-count="5">
-            <span style="padding: 5px 13px; border-radius: 999px; font-size: 11.5px; color: rgba(255,255,255,.9); white-space: nowrap; background: rgba(255,255,255,.05); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);">{{ c.label }}</span>
+            <span style="padding: 5px 13px; border-radius: 999px; font-size: 13.5px; color: rgba(255,255,255,.9); white-space: nowrap; background: rgba(255,255,255,.05); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);">{{ c.label }}</span>
           </sc-for>
         </div>
       </div>
@@ -226,11 +229,11 @@
     <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Ready to see it running in your business?</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
-        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 14.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
           <span style="position: relative; z-index: 1; white-space: nowrap;">Book your free Leak Audit</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 16px; height: 16px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
         </a>
-        <a href="tel:+12897003394" style="font-size: 14px; color: rgba(255,255,255,.72); white-space: nowrap;">+1 289-700-3394</a>
+        <a href="tel:+12897003394" style="font-size: 16.5px; color: rgba(255,255,255,.82); white-space: nowrap;">+1 289-700-3394</a>
       </div>
     </div>
 
@@ -238,32 +241,33 @@
 
   <section id="offer" data-screen-label="How we work" style="position: relative; overflow: hidden; background: #000;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/software-hands.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 34%; width: 100%; height: 100%; min-height: 100%; height: clamp(170px, 26vh, 280px); object-fit: cover; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 62%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 62%, transparent 100%); z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
+    <div aria-hidden="true" data-scrim="1" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.6) 34%, rgba(0,0,0,.56) 60%, rgba(0,0,0,.8) 100%);"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none;">
       <x-import component-from-global-scope="cine-scene" from="./cine-scene.js" mode="route" tint="#ffffff" opacity="0.38" hint-size="100%,100%"></x-import>
     </div>
     <div style="position: relative; z-index: 10; padding: clamp(70px, 12vh, 110px) clamp(20px, 5vw, 80px);">
-      <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 14px; color: rgba(255,255,255,.8);">// How we work</p>
+      <p data-anim="1" data-anim-delay="0" style="margin: 0 0 22px; font-size: 16.5px; color: rgba(255,255,255,.8);">// How we work</p>
       <h2 data-anim="1" data-anim-delay="120" style="margin: 0; max-width: 24ch; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(36px, 6vw, 82px); line-height: .92; letter-spacing: -0.038em; color: #FFFFFF;">Thirty days from the first call to live</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: clamp(36px, 6vh, 58px);">
         <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
           <div data-anim="1" data-anim-delay="{{ t.delay }}" style="padding: 22px; border-radius: 20px; display: flex; flex-direction: column; gap: 11px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
-            <span style="position: relative; z-index: 1; font-size: 12px; letter-spacing: .18em; color: rgba(255,255,255,.7);">{{ t.num }} · {{ t.week }}</span>
+            <span style="position: relative; z-index: 1; font-size: 14.5px; letter-spacing: .18em; color: rgba(255,255,255,.82);">{{ t.num }} · {{ t.week }}</span>
             <h3 style="position: relative; z-index: 1; margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 27px; letter-spacing: -0.02em; line-height: 1; color: #FFFFFF;">{{ t.title }}</h3>
-            <p style="position: relative; z-index: 1; margin: 0; font-size: 13.5px; font-weight: 300; line-height: 1.45; color: rgba(255,255,255,.88);">{{ t.body }}</p>
+            <p style="position: relative; z-index: 1; margin: 0; font-size: 15.5px; font-weight: 400; line-height: 1.62; color: rgba(255,255,255,.88);">{{ t.body }}</p>
           </div>
         </sc-for>
       </div>
-      <p data-anim="1" data-anim-delay="300" style="margin: clamp(26px, 4vh, 40px) 0 0; max-width: 60ch; font-size: 14.5px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.82);">One point of contact throughout. You own everything we build, and it's month to month — we'd rather earn next month than trap you in a year you regret by March.</p>
+      <p data-anim="1" data-anim-delay="300" style="margin: clamp(26px, 4vh, 40px) 0 0; max-width: 60ch; font-size: 16.5px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.82);">One point of contact throughout. You own everything we build, and it's month to month — we'd rather earn next month than trap you in a year you regret by March.</p>
     </div>
 
     <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Still weighing it up? Start with the audit.</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
-        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 14.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
           <span style="position: relative; z-index: 1; white-space: nowrap;">Book your free Leak Audit</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 16px; height: 16px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
         </a>
-        <a href="tel:+12897003394" style="font-size: 14px; color: rgba(255,255,255,.72); white-space: nowrap;">+1 289-700-3394</a>
+        <a href="tel:+12897003394" style="font-size: 16.5px; color: rgba(255,255,255,.82); white-space: nowrap;">+1 289-700-3394</a>
       </div>
     </div>
 
@@ -271,19 +275,20 @@
 
   <section id="audit" data-screen-label="Final CTA" style="position: relative; min-height: 92vh; display: flex; overflow: hidden; background: #000;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/proposal-paper.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
+    <div aria-hidden="true" data-scrim="1" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.6) 34%, rgba(0,0,0,.56) 60%, rgba(0,0,0,.8) 100%);"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1; pointer-events: none;">
       <x-import component-from-global-scope="cine-scene" from="./cine-scene.js" mode="converge" tint="#ffffff" opacity="0.5" hint-size="100%,100%"></x-import>
     </div>
     <div style="position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: clamp(18px, 3vh, 26px); padding: clamp(70px, 12vh, 130px) clamp(20px, 5vw, 60px);">
-      <span data-anim="1" data-anim-delay="0" style="padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: #FFFFFF; position: relative; overflow: hidden; background: rgba(255,255,255,.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;"><span style="position: relative; z-index: 1;">Free · 30 minutes · no obligation</span></span>
+      <span data-anim="1" data-anim-delay="0" style="padding: 5px 14px; border-radius: 999px; font-size: 14.5px; font-weight: 500; color: #FFFFFF; position: relative; overflow: hidden; background: rgba(255,255,255,.01); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;"><span style="position: relative; z-index: 1;">Free · 30 minutes · no obligation</span></span>
       <h2 data-anim="1" data-anim-delay="120" style="margin: 0; max-width: 22ch; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 7.4vw, 104px); line-height: .86; letter-spacing: -0.048em; color: #FFFFFF;">What is the leak costing you?</h2>
-      <p data-anim="1" data-anim-delay="240" style="margin: 0; max-width: 54ch; font-size: 15px; font-weight: 300; line-height: 1.5; color: #FFFFFF;">We walk through your week, count what falls through, and hand you a one-page number. Yours to keep, whether you hire us or not. No slide deck, no pressure.</p>
+      <p data-anim="1" data-anim-delay="240" style="margin: 0; max-width: 54ch; font-size: 17px; font-weight: 400; line-height: 1.68; color: #FFFFFF;">We walk through your week, count what falls through, and hand you a one-page number. Yours to keep, whether you hire us or not. No slide deck, no pressure.</p>
       <div data-anim="1" data-anim-delay="360" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px; margin-top: 6px;">
-        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 24px; border-radius: 999px; position: relative; overflow: hidden; font-size: 15px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+        <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 24px; border-radius: 999px; position: relative; overflow: hidden; font-size: 17px; font-weight: 500; color: #FFFFFF; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); box-shadow: 4px 4px 4px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
           <span style="position: relative; z-index: 1; white-space: nowrap;">Book the free Leak Audit</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 19px; height: 19px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
         </a>
-        <a href="/contact" style="font-size: 15px; color: #FFFFFF;">Or send us a message</a>
+        <a href="/contact" style="font-size: 17px; color: #FFFFFF;">Or send us a message</a>
       </div>
     </div>
   </section>
@@ -294,35 +299,35 @@
         <div style="display: flex; flex-direction: column; gap: 14px; max-width: 300px;">
           <a href="#top" style="display: flex; align-items: center; gap: 12px;">
             <img src="assets/logo-white.png" alt="Genovation AI" style="width: 28px; height: 28px; flex: none; object-fit: contain;">
-            <span style="font-size: 10px; letter-spacing: .3em;">GENOVATION AI</span>
+            <span style="font-size: 12.5px; letter-spacing: .3em;">GENOVATION AI</span>
           </a>
-          <p style="margin: 0; font-size: 13.5px; font-weight: 300; line-height: 1.6; color: rgba(255,255,255,.62);">AI systems for small &amp; mid-sized businesses. No sick days. No turnover. No 3 a.m. missed calls.</p>
+          <p style="margin: 0; font-size: 15.5px; font-weight: 400; line-height: 1.6; color: rgba(255,255,255,.78);">AI systems for small &amp; mid-sized businesses. No sick days. No turnover. No 3 a.m. missed calls.</p>
         </div>
         <div style="display: flex; flex-direction: column; gap: 11px;">
-          <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45);">What we build</span>
-          <a href="/ai-agents" style="font-size: 14px; color: rgba(255,255,255,.82);">AI Agents &amp; Automation</a>
-          <a href="/software-and-websites" style="font-size: 14px; color: rgba(255,255,255,.82);">AI Software &amp; Websites</a>
-          <a href="/get-found" style="font-size: 14px; color: rgba(255,255,255,.82);">Get Found · AI Marketing</a>
-          <a href="/video-and-ugc" style="font-size: 14px; color: rgba(255,255,255,.82);">Video &amp; UGC Content</a>
+          <span style="font-size: 13.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.74);">What we build</span>
+          <a href="/ai-agents" style="font-size: 16.5px; color: rgba(255,255,255,.82);">AI Agents &amp; Automation</a>
+          <a href="/software-and-websites" style="font-size: 16.5px; color: rgba(255,255,255,.82);">AI Software &amp; Websites</a>
+          <a href="/get-found" style="font-size: 16.5px; color: rgba(255,255,255,.82);">Get Found · AI Marketing</a>
+          <a href="/video-and-ugc" style="font-size: 16.5px; color: rgba(255,255,255,.82);">Video &amp; UGC Content</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 11px;">
-          <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45);">Company</span>
-          <a href="/about" style="font-size: 14px; color: rgba(255,255,255,.82);">About</a>
-          <a href="/industries" style="font-size: 14px; color: rgba(255,255,255,.82);">Industries</a>
-          <a href="/contact" style="font-size: 14px; color: rgba(255,255,255,.82);">Contact</a>
-          <a href="#workforce" style="font-size: 14px; color: rgba(255,255,255,.82);">AI Workforce</a>
-          <a href="#offer" style="font-size: 14px; color: rgba(255,255,255,.82);">How we work</a>
+          <span style="font-size: 13.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.74);">Company</span>
+          <a href="/about" style="font-size: 16.5px; color: rgba(255,255,255,.82);">About</a>
+          <a href="/industries" style="font-size: 16.5px; color: rgba(255,255,255,.82);">Industries</a>
+          <a href="/contact" style="font-size: 16.5px; color: rgba(255,255,255,.82);">Contact</a>
+          <a href="#workforce" style="font-size: 16.5px; color: rgba(255,255,255,.82);">AI Workforce</a>
+          <a href="#offer" style="font-size: 16.5px; color: rgba(255,255,255,.82);">How we work</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 11px;">
-          <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45);">Contact</span>
-          <a href="tel:+12897003394" style="font-size: 14px; color: rgba(255,255,255,.82);">+1 289-700-3394</a>
-          <a href="mailto:contact@genovation.ai" style="font-size: 14px; color: rgba(255,255,255,.82);">contact@genovation.ai</a>
-          <span style="font-size: 14px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.6);">4-1400 Grahams Lane,<br>Burlington, ON L7S 1W3</span>
-          <span style="font-size: 14px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,.6);">Mon–Fri 9am–6pm EST</span>
+          <span style="font-size: 13.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.74);">Contact</span>
+          <a href="tel:+12897003394" style="font-size: 16.5px; color: rgba(255,255,255,.82);">+1 289-700-3394</a>
+          <a href="mailto:contact@genovation.ai" style="font-size: 16.5px; color: rgba(255,255,255,.82);">contact@genovation.ai</a>
+          <span style="font-size: 16.5px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.78);">4-1400 Grahams Lane,<br>Burlington, ON L7S 1W3</span>
+          <span style="font-size: 16.5px; font-weight: 400; line-height: 1.68; color: rgba(255,255,255,.78);">Mon–Fri 9am–6pm EST</span>
         </div>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.14);">
-        <span style="font-size: 12.5px; color: rgba(255,255,255,.5);">© 2026 Genovation AI. All rights reserved.</span>
+        <span style="font-size: 14.5px; color: rgba(255,255,255,.74);">© 2026 Genovation AI. All rights reserved.</span>
       </div>
     </div>
   </footer>
