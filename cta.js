@@ -11,6 +11,7 @@
 (function () {
   'use strict';
 
+  var BLUE = '#2C77E7';
   var BOOKING = 'https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm';
   var TEL = '+12897003394';
   var TEL_LABEL = '+1 289-700-3394';
@@ -113,7 +114,9 @@
     'white-space:nowrap',
     'pointer-events:auto'
   ].join(';');
-  glass(book, 50);
+  /* Primary action: solid brand blue, not glass - it has to win the page. */
+  book.style.background = BLUE;
+  book.style.boxShadow = '0 8px 26px rgba(44,119,231,.45), inset 0 1px 1px rgba(255,255,255,.25)';
   var bookLabel = document.createElement('span');
   bookLabel.style.cssText = 'position:relative;z-index:1';
   bookLabel.textContent = 'Book your free Leak Audit';
