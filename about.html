@@ -104,8 +104,8 @@
   <section data-screen-label="Founder" style="padding: clamp(70px, 11vh, 140px) clamp(24px, 4vw, 48px);">
     <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: {{ founderColumns }}; gap: clamp(30px, 4vw, 64px); align-items: start; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
       <sc-if value="{{ showFounderPortrait }}" hint-placeholder-val="{{ true }}">
-        <div style="display: flex; flex-direction: column; gap: 26px; padding: clamp(26px, 3vw, 36px); border-radius: 20px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
-          <span style="position: relative; z-index: 1; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(44px, 5vw, 64px); font-weight: 400; letter-spacing: -0.04em; line-height: 1;">JH</span>
+        <div style="display: flex; flex-direction: column; gap: 26px; max-width: 460px; padding: clamp(26px, 3vw, 36px); border-radius: 20px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
+          <img src="assets/jamal-hossain.jpg" alt="Jamal Hossain, Founder and CEO of Genovation AI" loading="lazy" decoding="async" width="900" height="1125" style="position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; border-radius: 14px; filter: saturate(.98) contrast(1.02);" />
           <div style="position: relative; z-index: 1; display: flex; flex-direction: column; gap: 18px;">
             <div style="display: flex; flex-direction: column; gap: 5px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.16);">
               <span style="font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.74);">Founded</span>
@@ -644,7 +644,7 @@ class Component extends DCLogic {
       true: true,
       showFounderPortrait: portrait,
       showComparison: this.props.showComparison ?? true,
-      founderColumns: portrait ? 'minmax(0, 0.68fr) minmax(0, 1fr)' : 'minmax(0, 1fr)',
+      founderColumns: portrait ? 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))' : 'minmax(0, 1fr)',
       timeline: TIMELINE.map((t) => Object.assign({ key: t.num }, t)),
       comparison: COMPARISON.map((r) => Object.assign({ key: r.label }, r)),
       control: CONTROL.map((c) => Object.assign({ key: c.title }, c))
