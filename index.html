@@ -18,6 +18,7 @@
 <meta name="twitter:description" content="Genovation AI builds the AI that answers your phone, chases your leads and fills your calendar. Live in 30 days, or you don't pay for the build.">
 <script src="./support.js"></script>
 <script src="./cta.js" defer></script>
+<script src="./scrub.js" defer></script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":["Organization","ProfessionalService"],"@id":"https://genovation.ai/#organization","name":"Genovation AI","url":"https://genovation.ai/","logo":"https://genovation.ai/assets/logo-blue.png","image":"https://genovation.ai/assets/logo-blue.png","description":"Genovation AI builds AI systems for small and mid-sized businesses: AI agents that answer calls, chase leads and fill calendars. Live in 30 days.","foundingDate":"2023","email":"contact@genovation.ai","telephone":"+1-289-700-3394","address":{"@type":"PostalAddress","streetAddress":"4-1400 Grahams Lane","addressLocality":"Burlington","addressRegion":"ON","postalCode":"L7S 1W3","addressCountry":"CA"},"areaServed":{"@type":"Place","name":"North America"},"founder":{"@type":"Person","name":"Jamal Hossain","jobTitle":"Founder & CEO","sameAs":["https://www.linkedin.com/in/jamal-hossain-genovation"]},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"knowsAbout":["AI Agents & Automation","AI Software & Websites","Get Found · AI Marketing","Video & UGC Content"]},{"@context":"https://schema.org","@type":"WebPage","@id":"https://genovation.ai/#webpage","url":"https://genovation.ai/","name":"Genovation AI — AI systems for small & mid-sized businesses","description":"Genovation AI builds the AI that answers your phone, chases your leads and fills your calendar. Live in 30 days, or you don't pay for the build.","isPartOf":{"@type":"WebSite","@id":"https://genovation.ai/#website","url":"https://genovation.ai/","name":"Genovation AI","publisher":{"@id":"https://genovation.ai/#organization"}},"about":{"@id":"https://genovation.ai/#organization"}}]</script>
 </head>
 <body>
@@ -51,7 +52,7 @@
 </style>
 </helmet>
 
-<div style="background: #0A1226; font-family: 'Barlow', sans-serif; color: #FFFFFF; overflow-x: hidden;">
+<div style="background: #0A1226; font-family: 'Barlow', sans-serif; color: #FFFFFF; overflow-x: clip;">
 
   <section id="top" data-screen-label="Hero" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; background: #0A1226;">
     <video data-fading="1" autoPlay="{{ true }}" src="assets/hero-shop-lights.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-hidden="true" style="position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 120%; height: 120%; object-fit: cover; object-position: center; z-index: 0; filter: brightness(1.18) saturate(1.06) contrast(1.04);"></video>
@@ -204,6 +205,18 @@
       </div>
     </div>
 
+  </section>
+
+  <section id="flow" data-screen-label="Flow" data-scrub-track="1" style="position: relative; height: 280vh; background: #0A1226;">
+    <div style="position: sticky; top: 0; height: 100vh; overflow: hidden;">
+      <scrub-seq base="assets/seq-flow/f_" count="75" ext=".webp" pad="3" style="display: block; position: absolute; inset: 0; z-index: 1; pointer-events: none;"></scrub-seq>
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(120% 90% at 50% 50%, rgba(10,18,38,.25) 0%, rgba(10,18,38,.72) 65%, rgba(10,18,38,.92) 100%);"></div>
+      <div style="position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding: 0 clamp(20px, 6vw, 80px);">
+        <p data-scrub-line="0" style="margin: 0; max-width: 22ch; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF; opacity: 0; transition: opacity .45s ease;">Right now it is draining.</p>
+        <p data-scrub-line="1" style="margin: 0; max-width: 22ch; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF; opacity: 0; transition: opacity .45s ease; position: absolute;">We find every leak.</p>
+        <p data-scrub-line="2" style="margin: 0; max-width: 22ch; font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: clamp(30px, 6vw, 76px); line-height: 1.02; letter-spacing: -0.035em; color: #FFFFFF; opacity: 0; transition: opacity .45s ease; position: absolute;">Then it all flows one way.</p>
+      </div>
+    </div>
   </section>
 
   <section id="workforce" data-screen-label="AI Workforce" style="position: relative; min-height: 100vh; overflow: hidden; background: #0A1226;">
