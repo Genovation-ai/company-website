@@ -333,75 +333,99 @@ class Component extends DCLogic {
     staged.forEach((el) => this._sio.observe(el));
   }
 
+  // Seamless crossfade loop: a stacked twin dissolves in as the clip ends, so
+  // there is no hard cut at the loop seam and no dip to background.
   _initVideos() {
-    const FADE = 700, LEAD = 0.6, CYCLE_MIN = 12;
+    const FADE = 850, LEAD = 1.0;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._videoCleanup = [];
+    const prep = (v) => {
+      v.muted = true; v.defaultMuted = true; v.playsInline = true;
+      v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+      v.preload = 'auto'; v.loop = false;
+    };
+    const playSafe = (v) => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
     Array.from(document.querySelectorAll('[data-fading]')).forEach((video) => {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.playsInline = true;
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
-      video.preload = 'auto';
-      // the authored opacity is the target — never force full opacity over a scrim
-      const TARGET = (() => {
-        const v = parseFloat(video.style.opacity);
-        return isNaN(v) || v === 0 ? 1 : v;
-      })();
+      prep(video);
+      const TARGET = (() => { const v = parseFloat(video.style.opacity); return isNaN(v) || v === 0 ? 1 : v; })();
+
+      if (reduce) { video.loop = true; video.style.opacity = String(TARGET); playSafe(video); return; }
+
+      // twin stacked exactly over the primary (same styles → perfect overlap)
+      const twin = video.cloneNode(false);
+      twin.removeAttribute('data-fading');
+      twin.setAttribute('data-vtwin', '1');
+      twin.removeAttribute('id');
+      prep(twin);
+      twin.preload = 'none'; // don't buffer the twin until its section is near view
+      twin.style.transition = 'opacity ' + FADE + 'ms linear';
+      twin.style.opacity = '0';
       video.style.transition = 'opacity ' + FADE + 'ms linear';
       video.style.opacity = '0';
-      let fadingOut = false, shown = false, timer = 0;
+      const parent = video.parentNode;
+      if (parent) parent.insertBefore(twin, video.nextSibling);
 
-      const kick = () => { const pr = video.play(); if (pr && pr.catch) pr.catch(() => {}); };
-      // only decode what is on screen — offscreen clips pause instead of burning frames
-      const vio = new IntersectionObserver((es) => {
+      let active = video, idle = twin, started = false, swapping = false;
+
+      const start = () => {
+        if (started) return; started = true;
+        try { active.currentTime = 0; } catch (e) {}
+        playSafe(active);
+        requestAnimationFrame(() => { active.style.opacity = String(TARGET); });
+      };
+
+      const onTime = (e) => {
+        const v = e.target;
+        if (v !== active || swapping || !v.duration) return;
+        if (v.duration - v.currentTime <= LEAD) {
+          swapping = true;
+          const incoming = idle, outgoing = active;
+          try { incoming.currentTime = 0; } catch (er) {}
+          playSafe(incoming);
+          requestAnimationFrame(() => {
+            incoming.style.opacity = String(TARGET);
+            outgoing.style.opacity = '0';
+          });
+          active = incoming; idle = outgoing;
+          setTimeout(() => { try { outgoing.pause(); outgoing.currentTime = 0; } catch (er) {} swapping = false; }, FADE + 80);
+        }
+      };
+
+      video.addEventListener('timeupdate', onTime);
+      twin.addEventListener('timeupdate', onTime);
+
+      // re-insert the twin if the runtime ever reconciles it away
+      let mo = null;
+      if (parent && 'MutationObserver' in window) {
+        mo = new MutationObserver(() => {
+          if (!twin.isConnected && video.isConnected && video.parentNode) {
+            video.parentNode.insertBefore(twin, video.nextSibling);
+          }
+        });
+        mo.observe(parent, { childList: true });
+      }
+
+      const io = new IntersectionObserver((es) => {
         es.forEach((e) => {
-          if (e.isIntersecting) { const pr = video.play(); if (pr && pr.catch) pr.catch(() => {}); }
-          else if (!video.paused) video.pause();
+          if (e.isIntersecting) { if (twin.preload !== 'auto') { twin.preload = 'auto'; try { twin.load(); } catch (er) {} } started ? playSafe(active) : start(); }
+          else { try { video.pause(); twin.pause(); } catch (er) {} }
         });
       }, { rootMargin: '200px 0px', threshold: 0 });
-      vio.observe(video);
-      this._videoCleanup.push(() => vio.disconnect());
-      const reveal = () => {
-        if (shown) return;
-        shown = true;
-        video.loop = !(video.duration && video.duration >= CYCLE_MIN);
-        kick();
-        requestAnimationFrame(() => { video.style.opacity = String(TARGET); });
-        setTimeout(() => { if (parseFloat(video.style.opacity) < TARGET && !fadingOut) video.style.opacity = String(TARGET); }, FADE + 200);
-      };
-      const onTime = () => {
-        if (video.loop || fadingOut || !video.duration) return;
-        const left = video.duration - video.currentTime;
-        if (left <= LEAD && left > 0) { fadingOut = true; video.style.opacity = '0'; }
-      };
-      const onEnded = () => {
-        if (video.loop) return;
-        video.style.opacity = '0';
-        timer = setTimeout(() => {
-          video.currentTime = 0;
-          kick();
-          fadingOut = false;
-          video.style.opacity = String(TARGET);
-        }, 120);
-      };
+      io.observe(video);
 
-      video.addEventListener('loadeddata', reveal);
-      video.addEventListener('canplay', reveal);
-      video.addEventListener('playing', reveal);
-      video.addEventListener('timeupdate', onTime);
-      video.addEventListener('ended', onEnded);
-      if (video.readyState >= 2) reveal();
-      const boot = setTimeout(reveal, 1000);
+      const boot = setTimeout(start, 1000);
+      video.addEventListener('loadeddata', start);
+      video.addEventListener('canplay', start);
+      if (video.readyState >= 2) start();
 
       this._videoCleanup.push(() => {
-        clearTimeout(boot);
-        clearTimeout(timer);
-        video.removeEventListener('loadeddata', reveal);
-        video.removeEventListener('canplay', reveal);
-        video.removeEventListener('playing', reveal);
+        io.disconnect(); if (mo) mo.disconnect(); clearTimeout(boot);
         video.removeEventListener('timeupdate', onTime);
-        video.removeEventListener('ended', onEnded);
+        video.removeEventListener('loadeddata', start);
+        video.removeEventListener('canplay', start);
+        twin.removeEventListener('timeupdate', onTime);
+        if (twin.parentNode) twin.parentNode.removeChild(twin);
       });
     });
   }
