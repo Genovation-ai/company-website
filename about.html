@@ -33,7 +33,8 @@
   * { box-sizing: border-box; min-width: 0; }
   img, video, svg { max-width: 100%; }
   h1, h2, h3, p, li { overflow-wrap: break-word; }
-  a[href^="tel:"], a[href^="mailto:"] { white-space: nowrap; }
+  a[href^="tel:"], a[href^="mailto:"] { white-space: nowrap; min-height: 32px; }
+  footer a { display: inline-flex; align-items: center; min-height: 32px; }
   a { color: #FFFFFF; text-decoration: none; }
   a:hover { color: rgba(255,255,255,.82); }
   ::selection { background: #2C77E7; color: #FFFFFF; }
@@ -102,7 +103,7 @@
   </section>
 
   <section data-screen-label="Founder" style="padding: clamp(70px, 11vh, 140px) clamp(24px, 4vw, 48px);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: {{ founderColumns }}; gap: clamp(30px, 4vw, 64px); align-items: start; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: {{ founderColumns }}; gap: clamp(30px, 4vw, 64px); align-items: start; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <sc-if value="{{ showFounderPortrait }}" hint-placeholder-val="{{ true }}">
         <div style="display: flex; flex-direction: column; gap: 26px; max-width: 360px; padding: clamp(26px, 3vw, 36px); border-radius: 20px; position: relative; overflow: hidden; background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.15) 80%, rgba(255,255,255,.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
           <img src="assets/jamal-hossain.jpg" alt="Jamal Hossain, Founder and CEO of Genovation AI" loading="lazy" decoding="async" width="900" height="1125" style="position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; object-position: center 22%; border-radius: 14px; filter: saturate(.98) contrast(1.02);" />
@@ -137,24 +138,24 @@
     </div>
 
   <div style="margin-top: clamp(52px, 8vh, 96px); padding-top: clamp(52px, 8vh, 96px); border-top: 1px solid rgba(255,255,255,.14);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 60px); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 60px); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
         <span style="font-size: 13.5px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.82);">Why it keeps happening</span>
         <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 3.4vw, 46px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.1; display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em;"><span data-mask-line="1" style="display: block;">It's nobody's fault.</span></h2>
         <p style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.82); text-wrap: pretty;">Your team is already at capacity. The leaks aren't a discipline problem, and the two obvious fixes don't close them either.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px;">
-        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
+        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .48s cubic-bezier(.19,1,.22,1), transform .54s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
           <span style="font-size: 14.5px; letter-spacing: .2em; color: #FFFFFF;">01</span>
           <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(18px, 1.9vw, 22px); font-weight: 400; letter-spacing: -0.02em;">It's nobody's fault</h3>
           <p style="margin: 0; font-size: 17px; line-height: 1.68; color: rgba(255,255,255,.82);">Your team is already at capacity. Nobody is sitting idle while the phone rings out.</p>
         </div>
-        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
+        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .48s cubic-bezier(.19,1,.22,1), transform .54s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
           <span style="font-size: 14.5px; letter-spacing: .2em; color: #FFFFFF;">02</span>
           <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(18px, 1.9vw, 22px); font-weight: 400; letter-spacing: -0.02em;">Hiring doesn't fix it</h3>
           <p style="margin: 0; font-size: 17px; line-height: 1.68; color: rgba(255,255,255,.82);">A salary, 40 hours out of 168, and six months to get good at the job.</p>
         </div>
-        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
+        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .48s cubic-bezier(.19,1,.22,1), transform .54s cubic-bezier(.19,1,.22,1), background .3s ease, box-shadow .3s ease;" style-hover="background: rgba(255,255,255,.05); box-shadow: inset 0 1px 1px rgba(255,255,255,.16);">
           <span style="font-size: 14.5px; letter-spacing: .2em; color: #FFFFFF;">03</span>
           <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(18px, 1.9vw, 22px); font-weight: 400; letter-spacing: -0.02em;">Software alone doesn't either</h3>
           <p style="margin: 0; font-size: 17px; line-height: 1.68; color: rgba(255,255,255,.82);">A CRM is a filing cabinet with a monthly bill. It stores the lead. It doesn't chase it.</p>
@@ -163,7 +164,7 @@
     </div>
   </div>
 
-    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Want to know what this is costing you?</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
         <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: #2C77E7; box-shadow: 0 6px 22px rgba(44,119,231,.42), inset 0 1px 1px rgba(255,255,255,.25);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
@@ -177,7 +178,7 @@
   </section>
 
   <section data-screen-label="Advisor" style="padding: clamp(70px, 11vh, 140px) clamp(24px, 4vw, 48px); border-top: 1px solid rgba(255,255,255,.14);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(30px, 4vw, 64px); align-items: start; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: clamp(30px, 4vw, 64px); align-items: start; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <div style="display: flex; flex-direction: column; gap: clamp(22px, 3vh, 32px);">
         <span style="font-size: 13.5px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.78);">Executive Strategic Advisor</span>
         <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 3vw, 42px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.1;">Garry Wood</h2>
@@ -209,7 +210,7 @@
       </div>
     </div>
 
-    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Ready to see it running in your business?</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
         <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: #2C77E7; box-shadow: 0 6px 22px rgba(44,119,231,.42), inset 0 1px 1px rgba(255,255,255,.25);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
@@ -223,14 +224,14 @@
   </section>
 
   <section data-screen-label="The method" style="padding: clamp(70px, 11vh, 140px) clamp(24px, 4vw, 48px);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 58px); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 58px); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
         <span style="font-size: 13.5px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.78);">The method</span>
         <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 3.4vw, 46px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.1; display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em;"><span data-mask-line="1" style="display: block;">Plug the holes. Then fill the bucket.</span></h2>
         <p style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.82); text-wrap: pretty;">More marketing just pours more water into a leaking bucket. So we work in that order, every time.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: clamp(20px, 2.5vw, 32px);">
-        <div data-reveal="1" style="border: 1px solid rgba(255,255,255,.2); padding: clamp(26px, 3vw, 38px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+        <div data-reveal="1" style="border: 1px solid rgba(255,255,255,.2); padding: clamp(26px, 3vw, 38px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
           <span style="font-size: 13.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.78);">Step one · plug</span>
           <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(21px, 2.3vw, 29px); font-weight: 400; letter-spacing: -0.03em;">Stop the losses</h3>
           <p style="margin: 0; font-size: 17px; line-height: 1.72; color: rgba(255,255,255,.82);">AI agents answer every call, chase every lead, book the calendar and kill no-shows, plus the software and site to run it on.</p>
@@ -239,7 +240,7 @@
             <a href="/software-and-websites" style="padding: 9px 14px; border: 1px solid rgba(255,255,255,.22); font-size: 15.5px; transition: border-color .3s ease, color .3s ease;" style-hover="border-color: #FFFFFF; color: #FFFFFF;">02 · Software &amp; Websites</a>
           </div>
         </div>
-        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); color: #FFFFFF; border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 38px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+        <div data-reveal="1" data-lean="1" style="background: rgba(255,255,255,.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: inset 0 1px 1px rgba(255,255,255,.1); color: #FFFFFF; border-radius: 20px; position: relative; overflow: hidden; padding: clamp(26px, 3vw, 38px); display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
           <span style="font-size: 13.5px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.78);">Step two · fill</span>
           <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(21px, 2.3vw, 29px); font-weight: 400; letter-spacing: -0.03em;">Then bring more in</h3>
           <p style="margin: 0; font-size: 17px; line-height: 1.72; color: rgba(255,255,255,.82);">Only then do we turn on marketing: getting found, getting recommended by AI assistants, and content that sells you before the call.</p>
@@ -251,7 +252,7 @@
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: clamp(22px, 3vw, 40px); padding-top: clamp(20px, 3vh, 36px); border-top: 1px solid rgba(255,255,255,.14);">
         <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
-          <div data-reveal="1" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.45); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+          <div data-reveal="1" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.45); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
             <span style="font-size: 14.5px; letter-spacing: .2em; color: #FFFFFF;">{{ t.num }}</span>
             <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 19px; font-weight: 400;">{{ t.title }}</h3>
             <span style="font-size: 14.5px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.74);">{{ t.week }}</span>
@@ -264,7 +265,7 @@
 
   <sc-if value="{{ showComparison }}" hint-placeholder-val="{{ true }}">
     <div style="margin-top: clamp(52px, 8vh, 96px); padding-top: clamp(52px, 8vh, 96px); border-top: 1px solid rgba(255,255,255,.14);">
-      <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(30px, 4vh, 50px); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+      <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(30px, 4vh, 50px); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
         <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
           <span style="font-size: 13.5px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.82);">Honest comparison</span>
           <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 3.4vw, 46px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.1; display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em;"><span data-mask-line="1" style="display: block;">One AI system vs. one new hire</span></h2>
@@ -288,7 +289,7 @@
     </div>
   </sc-if>
 
-    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">Still weighing it up? Start with the audit.</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
         <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: #2C77E7; box-shadow: 0 6px 22px rgba(44,119,231,.42), inset 0 1px 1px rgba(255,255,255,.25);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
@@ -302,14 +303,14 @@
   </section>
 
   <section data-screen-label="Responsible AI" style="padding: clamp(70px, 11vh, 140px) clamp(24px, 4vw, 48px);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 58px); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 58px); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
         <span style="font-size: 13.5px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.78);">Responsible AI</span>
         <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 3.4vw, 46px); font-weight: 400; letter-spacing: -0.035em; line-height: 1.1; display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em;"><span data-mask-line="1" style="display: block;">You stay in control.</span></h2>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(22px, 3vw, 40px);">
         <sc-for list="{{ control }}" as="c" hint-placeholder-count="6">
-          <div data-reveal="1" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.35); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+          <div data-reveal="1" style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.35); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
             <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; font-weight: 400; letter-spacing: -0.015em;">{{ c.title }}</h3>
             <p style="margin: 0; color: rgba(255,255,255,.82); font-size: 16.5px; line-height: 1.68;">{{ c.body }}</p>
           </div>
@@ -319,7 +320,7 @@
     </div>
 
   <div style="margin-top: clamp(52px, 8vh, 96px);">
-    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 56px); opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(34px, 5vh, 56px); opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <div style="display: flex; flex-wrap: wrap; gap: clamp(28px, 5vw, 80px); padding-top: clamp(24px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14);">
         <div style="display: flex; flex-direction: column; gap: 6px;">
           <span style="font-size: clamp(26px, 3vw, 40px); font-weight: 400; letter-spacing: -0.04em;">2023</span>
@@ -360,7 +361,7 @@
     </div>
   </div>
 
-    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.19,1,.22,1), transform .95s cubic-bezier(.19,1,.22,1);">
+    <div data-reveal="1" data-cta-strip="1" style="max-width: 1240px; margin: clamp(46px, 6vh, 74px) auto 0; padding-top: clamp(30px, 4vh, 44px); border-top: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; opacity: 0; transform: translateY(26px); transition: opacity .5s cubic-bezier(.19,1,.22,1), transform .56s cubic-bezier(.19,1,.22,1);">
       <p style="margin: 0; max-width: 34ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(19px, 2.2vw, 27px); font-weight: 400; letter-spacing: -0.028em; line-height: 1.16; color: #FFFFFF;">One call is all it takes to find out.</p>
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px;">
         <a href="https://api.leadconnectorhq.com/widget/booking/3qoHJXcr2Hv7u9ADreKm" target="_blank" rel="noopener" data-magnet="1" style="display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px; position: relative; overflow: hidden; font-size: 16.5px; font-weight: 500; color: #FFFFFF; background: #2C77E7; box-shadow: 0 6px 22px rgba(44,119,231,.42), inset 0 1px 1px rgba(255,255,255,.25);" style-before="content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.2) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,.2) 80%, rgba(255,255,255,.5) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;">
@@ -388,7 +389,7 @@
           <span style="position: relative; z-index: 1; white-space: nowrap;">Book the free Leak Audit</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; z-index: 1; width: 17px; height: 17px;"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg>
         </a>
-        <a href="/contact" style="font-size: 17px; color: #FFFFFF;">Or send us a message</a>
+        <a href="/contact" style="font-size: 17px; color: #FFFFFF; display: inline-flex; align-items: center; min-height: 32px;">Or send us a message</a>
       </div>
     </div>
   </section>
@@ -596,7 +597,7 @@ class Component extends DCLogic {
     });
     const playAnim = (n) => {
       const d = Number(n.getAttribute('data-anim-delay')) || 0;
-      n.style.transition = 'opacity .8s ease-out ' + d + 'ms, filter .8s ease-out ' + d + 'ms, transform .8s ' + EASE + ' ' + d + 'ms';
+      n.style.transition = 'opacity .48s ease-out ' + d + 'ms, filter .48s ease-out ' + d + 'ms, transform .54s ' + EASE + ' ' + d + 'ms';
       n.style.opacity = '1';
       n.style.filter = 'blur(0px)';
       n.style.transform = 'none';
